@@ -1,29 +1,14 @@
 <html>
 <head>
-<title>This is to test closures</title>
+<title>Books Catalogue</title>
+<script type="text/javascript" src="javascripts/script.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
-<body>
-<form name='testform'>
-<button type='button' id='bt1' name='Button 1'>Button 1</button>
-</form>
-
-<script type='text/javascript'>
-doThis();
-console.log('inside javascript');
-function doThis(){
- //window.alert("x = " + this.x);
- this.x = 190;
-document.getElementById('bt1').onclick = alertfunc;
-  
-  console.log("here!");
-  }
-  
-function alertfunc(){
- window.alert("x =" + x);
- }
-  </script>
-
-
-
+<body data-ng-app="" data-ng-controller="displayBooks">
+<p data-ng-repeat="book in books">
+  <h4>{{book.tile}}</h4> by <h5>{{book.author}}</h5><br>
+  <h6>{{book.description}}</h6>  
+</p>
 </body>
 </html>

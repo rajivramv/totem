@@ -4,7 +4,7 @@ var pg = require('pg');
 
 /* GET home page. --> insert the client static page here */
 router.get('/', function(req, res) {
-  res.render('index', { title: 'Express' });
+  res.send('index.html');
 });
 
 /*GET add article page.*/
@@ -44,9 +44,10 @@ router.get('/getbooks',function(req,res){
       res.send(err);
     }
     else {
-      res.render('getbooks',{
-        "docs" : result.rows
-      });
+      //res.render('getbooks',{
+        //"docs" : result.rows
+      //});
+      res.json(result.rows);
     }
   });
 });
