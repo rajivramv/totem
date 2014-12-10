@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>This is to test closures</title>
+</head>
+<body>
+<form name='testform'>
+<button type='button' id='bt1' name='Button 1'>Button 1</button>
+</form>
+
+<script type='text/javascript'>
+doThis();
+console.log('inside javascript');
+function doThis(){
+ //window.alert("x = " + this.x);
+ this.x = 190;
+document.getElementById('bt1').onclick = alertfunc;
+  
+  console.log("here!");
+  }
+  
+function alertfunc(){
+ window.alert("x =" + x);
+ }
+  </script>
+
+
+
+</body>
+</html>

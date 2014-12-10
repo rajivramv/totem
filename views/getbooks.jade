@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1 Books
+  ol
+      each doc, i in docs
+          li
+              ul
+                  li
+                      h4 #{doc.title}
+                  li
+                      h4 #{doc.author}
+                  li
+                      h4 #{doc.description}
