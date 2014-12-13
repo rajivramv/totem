@@ -9,16 +9,24 @@ router.get('/', function(req, res) {
 
 /*GET add article page.*/
 router.get('/newbooks',function(req,res){
-  res.render('newbooks',{title: "Add new books"});
+  res.render('newbooks',{title: 'Add new books'});
 }); 
+/*
+user: 'postgres', //'wmaykjsckvcfpf',
+    password: 'ramrajiv1989', //'_bNvDcUlWanOTHMrYJvunWKZV0',
+    database: 'postgres', //'d29g4jh8r2taga',
+    port: 5432,
+    host: 'localhost',//'ec2-54-225-136-187.compute-1.amazonaws.com',
+    ssl: false //true
+*/
 
 function queryDB (querystr,doNext){
   foo = new pg.Client({
-    user: "wmaykjsckvcfpf",
-    password: "_bNvDcUlWanOTHMrYJvunWKZV0",
-    database: "d29g4jh8r2taga",
+    user: 'wmaykjsckvcfpf',
+    password: '_bNvDcUlWanOTHMrYJvunWKZV0',
+    database: 'd29g4jh8r2taga',
     port: 5432,
-    host: "ec2-54-225-136-187.compute-1.amazonaws.com",
+    host: 'ec2-54-225-136-187.compute-1.amazonaws.com',
     ssl: true
   });
   foo.connect (function(err){

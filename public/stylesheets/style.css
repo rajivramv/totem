@@ -1,8 +1,71 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+#cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-left: 50px;
+  background-image: url("book-cover.jpg");
+  font-size: 2.5em;
+  width: 100%;
+  height: 2em;
+  padding-top: 50px;
+  font-weight: 900;
+  color: rgba(82, 34, 34, 1);
+  text-shadow: rgb(182, 98, 98) 1px 1px 0px;
+  box-shadow: 0px 5px 10px 1px #242424;
+  -webkit-box-shadow: 0px 5px 10px 1px #242424;
+  -moz-box-shadow: 0px 5px 10px 1px #242424;
+  -o-box-shadow: 0px 5px 10px 1px #242424;
 }
 
+body {
+  position: relative;
+  margin-top: 10em;
+  font-size: 100%;
+  padding: 0;
+  font: 16px Georgia, "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url("back-inside-cover.jpg");
+}
+.books-list {
+  background-image: url("paper.jpg");
+  margin: 2em 4em 2em 4em;
+  height: auto;
+  font-family: "Lucida Handwriting", cursive;
+  color: darkblue;
+  font-weight: 100;
+  padding: 9px 0.4em 0.1em 4em;
+  line-height: 26px;
+}
+
+.book-title{
+  display: block;
+  font-weight:900;
+}
+.book-author{
+  display: block;
+  font-weight:900;
+}
+.book-description{
+  display: block;
+}
 a {
   color: #00B7FF;
+}
+input[type="text"]{
+  font-weight:900;
+}
+input, textarea  {
+  margin: 0em;
+  padding: 0;
+  width: 100%;
+  display: block;
+  font-family: "Lucida Handwriting", cursive;
+  color: darkblue;
+  font-weight: inherit;
+  font-size: 100%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 0px;
+  background: transparent;
+}
 }

@@ -1,14 +1,27 @@
+<!DOCTYPE html>
 <html>
 <head>
 <title>Books Catalogue</title>
-<script type="text/javascript" src="javascripts/script.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.js"></script>
+<link href="stylesheets/style.css" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.js"></script>
+<script type="text/javascript" src="javascripts/script.js"></script>
 </head>
-<body data-ng-app="" data-ng-controller="displayBooks">
-<p data-ng-repeat="book in books">
-  <span>{{book.title}}</span> by <span> {{book.author}} <span>
-  <span>{{book.description}}</span>
-</p>
+<body data-ng-app="books-list-app" data-ng-controller="books-list-controller">
+<div id="cover">Books and nothing else...</div>
+<form class="books-list">
+  <input type="text" data-ng-model="newtitle" value=""/>
+  <input type="text" data-ng-model="newauthor" value="" />
+  <textarea data-ng-model="newdescription" value=""/>
+  <button type="button" data-ng-click="pushBook()">Submit</button>
+</form>
+  
+<div class="books-list" data-ng-repeat="book in books track by $index">
+  <span class="book-title"> {{ book.title }} </span> 
+  <span class="book-author"> {{ book.author }} </span> 
+  <span class="book-description">{{ book.description }} </span>
+</div>
+
 </body>
+
 </html>
