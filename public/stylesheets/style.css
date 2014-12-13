@@ -25,6 +25,7 @@ body {
   padding: 0;
   font: 16px Georgia, "Lucida Grande", Helvetica, Arial, sans-serif;
   background-image: url("back-inside-cover.jpg");
+  display: none;
 }
 .book-card {
   background-image: url("paper.jpg");

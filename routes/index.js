@@ -27,7 +27,7 @@ function queryDB (querystr,doNext){
     database: 'd29g4jh8r2taga',
     port: 5432,
     host: 'ec2-54-225-136-187.compute-1.amazonaws.com',
-    ssl: true
+    ssl: false
   });
   foo.connect (function(err){
     if (err){

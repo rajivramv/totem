@@ -1,3 +1,7 @@
+$(document).ready(function(){
+  //console.log('ready!');
+  $('body').css('display','block')
+});
 var app = angular.module('books-list-app',['ngAnimate']);
 
 app.controller('books-list-controller',function($scope,$http){  
