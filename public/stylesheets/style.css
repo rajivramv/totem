@@ -12,9 +12,10 @@
   color: rgba(82, 34, 34, 1);
   text-shadow: rgb(182, 98, 98) 1px 1px 0px;
   box-shadow: 0px 5px 10px 1px #242424;
-  -webkit-box-shadow: 0px 5px 10px 1px #242424;
-  -moz-box-shadow: 0px 5px 10px 1px #242424;
-  -o-box-shadow: 0px 5px 10px 1px #242424;
+  -webkit-box-shadow: 0px 2px 10px 1px #242424;
+  -moz-box-shadow: 0px 2px 10px 1px #242424;
+  -o-box-shadow: 0px 2px 10px 1px #242424;
+  z-index: 10;
 }
 
 body {
@@ -25,7 +26,7 @@ body {
   font: 16px Georgia, "Lucida Grande", Helvetica, Arial, sans-serif;
   background-image: url("back-inside-cover.jpg");
 }
-.books-list {
+.book-card {
   background-image: url("paper.jpg");
   margin: 2em 4em 2em 4em;
   height: auto;
@@ -35,6 +36,31 @@ body {
   font-weight: 100;
   padding: 9px 0.4em 9px 4em;
   line-height: 26px;
+  box-shadow: 0px 5px 10px 1px #242424;
+  -webkit-box-shadow: 0px 5px 10px 1px #242424;
+  -moz-box-shadow: 0px 5px 10px 1px #242424;
+  -o-box-shadow: 0px 5px 10px 1px #242424;
+} 
+
+.book-card.ng-enter {
+  -webkit-transition: 0.4s linear all;
+  -moz-transition: 0.4s linear all;
+  -o-transition: 0.4s linear all;
+  transition: 0.4s linear all;
+  opacity: 0;
+}
+.loader {
+  position: fixed;
+  background-image: url("loader.gif");
+  background-repeat: no-repeat;
+  left: 50%;
+  right: 50%;
+  height: 32px;
+  width: 32px;
+}
+
+.book-card.ng-enter-active {
+  opacity: 1;
 }
 
 .book-title{
@@ -55,20 +81,27 @@ input[type="text"]{
   font-weight:900;
   font-size: inherit;
 }
+textarea {
+  font-weight:900;
+  font-size: inherit;
+  overflow: hidden;
+   resize: none;
+}
 button {
   background: transparent;
   border: 0px;
   position:relative;
-  font-size: 1.1em;
-  left: 95%;  
+  font-size: 1em;
+  left: 95%;
 }
 input, textarea  {
   margin: 0em;
+  line-height: 26px;
   padding: 0;
   width: 100%;
   display: block;
   font-family: "Lucida Handwriting", cursive;
-  color: black;
+  color: grey;
   font-weight: inherit;
   font-size: inherit;
   -moz-box-sizing: border-box;
@@ -77,4 +110,7 @@ input, textarea  {
   border: 0px;
   background: transparent;
 }
+:focus {
+  outline: none;
 }
+
