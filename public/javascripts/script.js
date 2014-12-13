@@ -2,34 +2,50 @@ $(document).ready(function(){
   //console.log('ready!');
   $('body').css('display','block')
 });
+
 var app = angular.module('books-list-app',['ngAnimate']);
 
 app.controller('books-list-controller',function($scope,$http){  
   var refreshBooks = function(){
-  //http://localhost:3000/getbooks
-  //https://arcane-forest-5176.herokuapp.com/getbooks
-    $http.get('/getbooks').success(function(response){
+      $http.get('/getbooks').success(function(response){
       $scope.books = response;
+      $scope.newtitle = 'Title';
+      $scope.newauthor = 'Author';
+      $scope.newdescription = 'Description';
       $('.loader').fadeOut('fast');
-      //console.log($scope.books);
+      $('button').prop('disabled',true);
+      $('input,textarea').each(function(index,element){
+        $(element).css('color','grey');
+      });
+      $('textarea').height('52px');
     }).error(function(response){
-      console.log(response);
+        console.log(response);
+        $('.loader').text('Error fetching books!').addClass('error').fadeOut(5000,'swing',function(){
+          $(this).removeClass('error');
+          $(this).text('');
+
+        });
     });
   };
   refreshBooks();
   $scope.newtitle = 'Title';
   $scope.newauthor = 'Author';
   $scope.newdescription = 'Description';
-  //http://localhost:3000/addbooks
-  //https://arcane-forest-5176.herokuapp.com/addbooks
+
   $scope.pushBook = function(){
     $('.loader').fadeIn('fast');
     $http.post('/addbooks',{
-      title : $scope.newtitle,
-      author : $scope.newauthor,
-      description : $scope.newdescription
-      }).success(function(response) {
-        refreshBooks();
+      title : $scope.newtitle.replace(/'/g,""),
+      author : $scope.newauthor.replace(/'/g,""),
+      description : $scope.newdescription.replace(/'/g,"")
+      }).success(function(response) {       
+          refreshBooks();
+    }).error(function(){
+      console.log(response);
+      $('.loader').text('Error submitting books!').addClass('error').fadeOut(5000,'swing',function(){
+        $(this).removeClass('error');
+        $(this).text('');
+      });
     });
   };
   
@@ -55,12 +71,17 @@ app.controller('books-list-controller',function($scope,$http){
       }      
     });
   });
-     
-  $('textarea').keydown(function(){
-    if(this.clientHeight < this.scrollHeight){
-      foo = ($(this).height() + 26).toString();
-      $(this).css('height', foo);
+  var adjustHeight = function(element){
+    if(element.clientHeight < element.scrollHeight){
+      foo = element.scrollHeight.toString();
+      $(element).css('height', foo);
     }
+  };   
+  $('textarea').change(function(){
+    adjustHeight(this);
+  });
+  $('textarea').keydown(function(){
+    adjustHeight(this);
   });  
 });
 

@@ -35,11 +35,11 @@ function queryDB (querystr,doNext){
     }
     else{
       foo.query(querystr,function(err,result){
+        foo.end();
         if (err){
            doNext('Oops...something went wrong in the query to the database.' + err,-1);
         }
         else{
-          foo.end();
           doNext(0,result);
         }
       });

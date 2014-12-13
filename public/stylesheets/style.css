@@ -59,7 +59,13 @@ body {
   height: 32px;
   width: 32px;
 }
-
+.error{
+  color: white;
+  background: maroon;
+  width: 151px;
+  margin-left: -100px;
+  height: auto;
+}
 .book-card.ng-enter-active {
   opacity: 1;
 }
@@ -86,7 +92,8 @@ textarea {
   font-weight:900;
   font-size: inherit;
   overflow: hidden;
-   resize: none;
+  resize: none;
+  height: 52px;
 }
 button {
   background: transparent;
