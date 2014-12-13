@@ -13,12 +13,12 @@ app.controller('books-list-controller',function($scope,$http){
       $scope.books = response;
       console.log(response);
     });
-  
+
   };
   refreshBooks();
   $scope.newtitle = 'Title';
   $scope.newauthor = 'Author';
-  $scope.newdescription = 'Description'
+  $scope.newdescription = 'Description';
   //http://localhost:3000/addbooks
   $scope.pushBook = function(){
     $http.post('https://arcane-forest-5176.herokuapp.com/addbooks',{
