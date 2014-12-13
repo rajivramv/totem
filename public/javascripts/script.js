@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(window).load(function(){
   //console.log('ready!');
   $('body').css('display','block')
 });
