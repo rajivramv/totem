@@ -31,14 +31,15 @@ function queryDB (querystr,doNext){
   });
   foo.connect (function(err){
     if (err){
-      doNext('Oops...something went while connecting to the database. Error log: ' + err,-1);
+      doNext('Oops...something went while connecting to the database.' + err,-1);
     }
     else{
       foo.query(querystr,function(err,result){
         if (err){
-           doNext('Oops...something went wrong in the query to the database. Error log: ' + err,-1);
+           doNext('Oops...something went wrong in the query to the database.' + err,-1);
         }
         else{
+          foo.end();
           doNext(0,result);
         }
       });

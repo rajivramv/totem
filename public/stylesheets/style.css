@@ -30,7 +30,8 @@ body {
   margin: 2em 4em 2em 4em;
   height: auto;
   font-family: "Lucida Handwriting", cursive;
-  color: darkblue;
+  font-size: inherit;
+  color: black;
   font-weight: 100;
   padding: 9px 0.4em 9px 4em;
   line-height: 26px;
@@ -52,6 +53,14 @@ a {
 }
 input[type="text"]{
   font-weight:900;
+  font-size: inherit;
+}
+button {
+  background: transparent;
+  border: 0px;
+  position:relative;
+  font-size: 1.1em;
+  left: 95%;  
 }
 input, textarea  {
   margin: 0em;
@@ -59,9 +68,9 @@ input, textarea  {
   width: 100%;
   display: block;
   font-family: "Lucida Handwriting", cursive;
-  color: darkblue;
+  color: black;
   font-weight: inherit;
-  font-size: 100%;
+  font-size: inherit;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
