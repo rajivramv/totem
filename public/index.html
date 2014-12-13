@@ -7,12 +7,15 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.js"></script>
 <script type="text/javascript" src="javascripts/script.js"></script>
 </head>
+
 <body data-ng-app="books-list-app" data-ng-controller="books-list-controller">
+
 <div id="cover">Books and nothing else...</div>
+
 <form class="books-list">
-  <input type="text" data-ng-model="newtitle" value=""/>
+  <input type="text" data-ng-model="newtitle" value="" />
   <input type="text" data-ng-model="newauthor" value="" />
-  <textarea data-ng-model="newdescription" value=""/>
+  <textarea data-ng-model="newdescription" value=""/></textarea>
   <button type="button" data-ng-click="pushBook()">Submit</button>
 </form>
   

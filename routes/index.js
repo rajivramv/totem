@@ -31,12 +31,12 @@ function queryDB (querystr,doNext){
   });
   foo.connect (function(err){
     if (err){
-      doNext('Oops...something went while connecting to the database...See the error log below <br\> <h2>Error log:</h2><br\>' + err,-1);
+      doNext('Oops...something went while connecting to the database. Error log: ' + err,-1);
     }
     else{
       foo.query(querystr,function(err,result){
         if (err){
-           doNext('Oops...something went wrong in the query to the database...See the error log below <br\> <h2>Error log:</h2><br\>' + err,-1);
+           doNext('Oops...something went wrong in the query to the database. Error log: ' + err,-1);
         }
         else{
           doNext(0,result);
@@ -50,7 +50,7 @@ router.get('/getbooks',function(req,res){
   queryDB('SELECT * FROM books',function(err,result){
     if(err){
       res.writeHead(400,{
-        'Content-Length': body.length,
+        'Content-Length': err.length,
         'Content-Type': 'text/plain'
       });
       res.write(err);
@@ -74,7 +74,7 @@ router.post('/addbooks',function(req,res){
   queryDB('INSERT INTO books VALUES ' + valuestr,function(err,result){
     if(err){
       res.writeHead(400,{
-        'Content-Length': body.length,
+        'Content-Length': err.length,
         'Content-Type': 'text/plain'
       });
       res.write(err);
