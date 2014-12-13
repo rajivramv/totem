@@ -49,7 +49,12 @@ function queryDB (querystr,doNext){
 router.get('/getbooks',function(req,res){
   queryDB('SELECT * FROM books',function(err,result){
     if(err){
-      res.send(err);
+      res.writeHead(400,{
+        'Content-Length': body.length,
+        'Content-Type': 'text/plain'
+      });
+      res.write(err);
+      res.end();
     }
     else {
       //res.render('getbooks',{
@@ -68,7 +73,12 @@ router.post('/addbooks',function(req,res){
   
   queryDB('INSERT INTO books VALUES ' + valuestr,function(err,result){
     if(err){
-      res.send(err);
+      res.writeHead(400,{
+        'Content-Length': body.length,
+        'Content-Type': 'text/plain'
+      });
+      res.write(err);
+      res.end();
     }
     else {
       res.location('newbooks');
