@@ -1,4 +1,4 @@
 totem
 =====
 
-This is a foo.
+A simple nodejs-postgress-angularjs book catalogue.
